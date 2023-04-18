@@ -48,14 +48,14 @@ class Datasource {
     }
   }
   
-  const ds = new Datasource();
-  
-  ds.getPrices()
-    .then((prices) => {
-      prices.forEach((price) => {
-        console.log(`Mid price for ${price.pair} is ${price.mid()} ${price.quote()}.`);
-      });
-    })
-    .catch((error) => {
-      console.error(error);
+const ds = new Datasource();
+
+ds.getPrices()
+  .then((prices) => {
+    prices.forEach((price) => {
+      console.log(`Mid price for ${price.pair} is ${price.mid()} ${price.quote()}.`);
     });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
