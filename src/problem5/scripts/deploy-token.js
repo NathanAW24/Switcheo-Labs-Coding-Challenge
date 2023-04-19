@@ -1,7 +1,8 @@
 const hre = require("hardhat");
 
 async function main() {
-  const [deployer] = await hre.ethers.getSigners();
+//   const [deployer] = await hre.ethers.getSigners();
+const deployer = await hre.ethers.getSigner(1);
 
   console.log("Deploying contracts with the account:", deployer.address);
 
