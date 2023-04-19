@@ -14,6 +14,7 @@ const TokenForm: any = () => {
   })
 
   const [showEmptyFormWarning, setShowEmptyFormWarning] = useState<boolean>(false)
+  const [showThankYouMessage, setShowThankYouMessage] = useState<boolean>(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -35,6 +36,10 @@ const TokenForm: any = () => {
     }
 
     // Send the data to the server, e.g., using fetch or axios
+    setShowThankYouMessage(true)
+    setTimeout(() => {
+      setShowThankYouMessage(false)
+    }, 3000)
     console.log('data sent!', formData)
 
     // after submit we want the form to be empty
@@ -98,6 +103,11 @@ const TokenForm: any = () => {
             onChange={handleChange}
           />
         </div>
+        {showThankYouMessage && (
+          <div className="bg-green-200 text-green-900 px-4 py-2 mb-2 rounded">
+            Thank you, your submission is recorded!
+          </div>
+        )}
         <div className="flex items-center justify-center mt-3">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
